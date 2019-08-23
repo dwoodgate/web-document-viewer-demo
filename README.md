@@ -11,17 +11,17 @@ After loading the solution in Visual Studio (2017 in my case), close visual stud
  - Relative location .vs\config\applicationhost.config
  - Add two virtual directory entities to the Site as shown below. 
 
-`           <site name="Atalasoft.Demo.WebDocumentViewer" id="2">
-                <application path="/" applicationPool="Clr4IntegratedAppPool">
-                    <virtualDirectory path="/" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\Atalasoft.Demo.WebDocumentViewer" />
-					<virtualDirectory path="/Original" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Original" />
-					<virtualDirectory path="/Saved" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Saved" />
-                </application>
-                <bindings>
-                    <binding protocol="http" bindingInformation="*:52958:localhost" />
-                </bindings>
-            </site> 
-`
+    <site name="Atalasoft.Demo.WebDocumentViewer" id="2">
+        <application path="/" applicationPool="Clr4IntegratedAppPool">
+            <virtualDirectory path="/" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\Atalasoft.Demo.WebDocumentViewer" />
+            <virtualDirectory path="/Original" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Original" />
+            <virtualDirectory path="/Saved" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Saved" />
+        </application>
+        <bindings>
+            <binding protocol="http" bindingInformation="*:52958:localhost" />
+        </bindings>
+    </site> 
+
 ---
 # Atalasoft DotImage Web Document Viewer demo
 Demo application shows basic usage of Web Document Viewer component of [DotImage](https://www.atalasoft.com/Products/DotImage) product. Live verions of the demo is hosted on Azure: http://atalasoft-viewer-demo.azurewebsites.net/
