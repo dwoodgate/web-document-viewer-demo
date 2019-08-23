@@ -1,13 +1,24 @@
 # Why this repo exists
 I forked this project to reproduce an issue seen in the Atalasoft 11.1 line with Virtual Directories in IIS. 
 
-# Modifications made by me
-Added DocRootOutsideWeb folder containing Original and Saved subfolders
- - Original contains the default startup.pdf and tif. 
- - Saved is the save location
+# Modifications made by me (in Branches WDV-11-1 and WDV-11-0)
+ - Removed package Atalasoft.dotImage.Office.x86 and references, as we don't have that license.
+ - Added DocRootOutsideWeb folder containing Original and Saved subfolders
+ - Added DocRootOutsideWeb folder containing Original and Saved subfolders
+ - Modified Initialization.js (WDV-11-0 and WDV-11-1)
+```
+var _docUrl = "~/Original/startup.pdf";
+var _savePath = "~/Saved/";
+```
+ - Upgraded nuget packages to 11.1 latest. I also changed index.html to use the updated scripts. (WDV-11-1)
+ - Added a local.html and InitializationLocal.js to confirm doc can be loaded (WDV-11-1)
+```
+var _docUrl = "~/WebViewingDemoResources/startup.pdf";
+var _savePath = "~/WebViewingDemoResources/Saved/";
+```
 
-# Necessary config change to reproduce issue
-After loading the solution in Visual Studio (2017 in my case), close VS and open the newly created IISExpress applicationhost.config file with a text editor. (Alternatively, you could deploy to a local IIS instance and add two virtual directories.)
+# IISExpress Virtual Directories : Necessary config change to reproduce issue
+After loading the solution in Visual Studio (2017 in my case), close visual studio and open the newly created applicationhost.config file with a text editor.
  - Relative location .vs\config\applicationhost.config
  - Add two virtual directory entities to the Site as shown below. 
 ```XML
