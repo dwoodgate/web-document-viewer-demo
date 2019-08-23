@@ -1,3 +1,28 @@
+# Why this repo exists
+I forked this project to reproduce an issue seen in the Atalasoft 11.1 line with Virtual Directories in IIS. 
+
+# Modifications made by me
+Added DocRootOutsideWeb folder containing Original and Saved subfolders
+ - Original contains the default startup.pdf and tif. 
+ - Saved is the save location
+
+# Necessary config change to reproduce issue
+After loading the solution in Visual Studio (2017 in my case), close visual studio and open the newly created applicationhost.config file with a text editor.
+ - Relative location .vs\config\applicationhost.config
+ - Add two virtual directory entities to the Site as shown below. 
+
+`           <site name="Atalasoft.Demo.WebDocumentViewer" id="2">
+                <application path="/" applicationPool="Clr4IntegratedAppPool">
+                    <virtualDirectory path="/" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\Atalasoft.Demo.WebDocumentViewer" />
+					<virtualDirectory path="/Original" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Original" />
+					<virtualDirectory path="/Saved" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\DocRootOutsideWeb\Saved" />
+                </application>
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:52958:localhost" />
+                </bindings>
+            </site> 
+`
+---
 # Atalasoft DotImage Web Document Viewer demo
 Demo application shows basic usage of Web Document Viewer component of [DotImage](https://www.atalasoft.com/Products/DotImage) product. Live verions of the demo is hosted on Azure: http://atalasoft-viewer-demo.azurewebsites.net/
 

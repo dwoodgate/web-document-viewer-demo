@@ -2,8 +2,8 @@
 var _thumbs;
 var _scanPage = 1;
 var _serverUrl = "Handlers/WebDocumentViewerHandler.ashx";
-var _docUrl = "~/WebViewingDemoResources/startup.pdf";
-var _savePath = "~/WebViewingDemoResources/Saved/";
+var _docUrl = "~/Original/startup.pdf";
+var _savePath = "~/Saved/";
 var _thumbsShowing = true;
 
 var _initialViewerWidth;

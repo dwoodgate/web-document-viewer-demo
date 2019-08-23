@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Caching;
 using Atalasoft.Imaging;
 using Atalasoft.Imaging.Codec;
-using Atalasoft.Imaging.Codec.Office;
 using Atalasoft.Imaging.Codec.Pdf;
 
 namespace Atalasoft.Demo.WebDocumentViewer.Handlers
@@ -84,7 +83,7 @@ namespace Atalasoft.Demo.WebDocumentViewer.Handlers
                     ms.Seek(0, 0);
 
                     var decoder = RegisteredDecoders.GetDecoder(ms);
-                    if (decoder is TiffDecoder || decoder is PdfDecoder || decoder is OfficeDecoder)
+                    if (decoder is TiffDecoder || decoder is PdfDecoder )
                     {
                         ms.CopyTo(outStream);
                     }
