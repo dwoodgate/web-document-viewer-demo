@@ -10,7 +10,7 @@ Added DocRootOutsideWeb folder containing Original and Saved subfolders
 After loading the solution in Visual Studio (2017 in my case), close VS and open the newly created IISExpress applicationhost.config file with a text editor. (Alternatively, you could deploy to a local IIS instance and add two virtual directories.)
  - Relative location .vs\config\applicationhost.config
  - Add two virtual directory entities to the Site as shown below. 
-
+```XML
     <site name="Atalasoft.Demo.WebDocumentViewer" id="2">
         <application path="/" applicationPool="Clr4IntegratedAppPool">
             <virtualDirectory path="/" physicalPath="C:\PATH\TO\web-document-viewer-demo-fork\Atalasoft.Demo.WebDocumentViewer" />
@@ -21,7 +21,7 @@ After loading the solution in Visual Studio (2017 in my case), close VS and open
             <binding protocol="http" bindingInformation="*:52958:localhost" />
         </bindings>
     </site> 
-
+```
 ---
 # Atalasoft DotImage Web Document Viewer demo
 Demo application shows basic usage of Web Document Viewer component of [DotImage](https://www.atalasoft.com/Products/DotImage) product. Live verions of the demo is hosted on Azure: http://atalasoft-viewer-demo.azurewebsites.net/
